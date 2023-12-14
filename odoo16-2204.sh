@@ -1,5 +1,5 @@
 #!/bin/bash
-# to run the script "sudo /bin/sh odoo15_2204.sh"
+# to run the script "sudo /bin/sh odoo17_2204.sh"
 # this script is for Ubuntu server 22.04 Jammy
 ################################################################################
 # Script for preparing Odoo production server platform on Ubuntu 20.04 (could be used for other version too)
@@ -18,11 +18,11 @@
 # Execute the script to install Odoo:
 # ./odoo-developing
 ################################################################################
- 
+
 ##fixed parameters
 #instead of odoo use ur user name .EG OE_USER="mahmoud"
 OE_USER="odoo"
-OE_BRANCH="16.0"
+OE_BRANCH="17.0"
 
 # Add group
 groupadd $OE_USER
@@ -97,7 +97,7 @@ apt-get install libwww-perl -y
 # Install Wkhtmltopdf if needed
 #--------------------------------------------------
 if [ $INSTALL_WKHTMLTOPDF = "True" ]; then
-  echo -e "\n---- Install wkhtml and place shortcuts on correct place for ODOO 15.0 ----"
+  echo -e "\n---- Install wkhtml and place shortcuts on correct place for ODOO 17.0 ----"
   #pick up correct one from x64 & x32 versions:
   if [ "`getconf LONG_BIT`" == "64" ];then
       _url=$WKHTMLTOX_X64
@@ -115,7 +115,6 @@ fi
 
 
 
- 
     # Odoo Enterprise install!
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
@@ -145,7 +144,7 @@ sudo apt-get install -y python3-pip python3-wheel python3-setuptools
 sudo -H pip3 install --upgrade pip
 sudo apt install -y python3-asn1crypto 
 sudo apt install -y python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-werkzeug python3-xlsxwriter python3-yaml
-pip3 install -r https://raw.githubusercontent.com/odoo/odoo/15.0/requirements.txt --user
+pip3 install -r https://raw.githubusercontent.com/odoo/odoo/17.0/requirements.txt --user
 # pip3 install -r https://raw.githubusercontent.com/mah007/OdooScript/14.0/requirements.txt --user
 pip3 install phonenumbers --user
 echo "---------------------------odoo directory--------------------------------"
